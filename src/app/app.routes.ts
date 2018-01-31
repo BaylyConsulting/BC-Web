@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
 @NgModule({
     imports: [
         RouterModule.forRoot([
             {
                 path: '',
                 pathMatch: 'full',
-                redirectTo: '/company/home',
-            }
-        ])
+                redirectTo: '/home/index',
+            },
+            { path: 'home', loadChildren: 'home.bloc/home.module#HomeBlocModule' },
+            // {path: '**', redirectTo: '/pagenotfound'}
+        ]),
     ],
-    exports: [RouterModule]
+    exports: [RouterModule],
 })
 export class AppRoutingModule { }
-
